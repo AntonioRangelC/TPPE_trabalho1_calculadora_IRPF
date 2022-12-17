@@ -1,7 +1,7 @@
 
 # **Trabalho 1 da disciplina TPPE**
 
-# Integrantes
+## Integrantes
 
 | Nome | Matrícula |
 | - | - |
@@ -13,7 +13,7 @@
 | João Paulo Coelho de Souza  | 160127327 |
 
 
-# Sobre
+## Sobre
 
 O projeto consiste em fazer um simulador parecido ao simulador disponibilizado pela RFB, sendo o  cálculo do  Imposto de Renda de Pessoa Física (IRPF). Esse simulador será construído através do método de TDD utilizando, as técnicas de falsificação, duplicação e triangulação de testes.
 
@@ -31,7 +31,7 @@ O projeto resultante do desenvolvimento através de TDD será capaz de fazer o:
 - Cálculo dos impostos das faixas de impostos.
 - Calcular a alíquota efetiva
 
-# Uso
+## Uso
 
 
 ## Trabalho Prático
