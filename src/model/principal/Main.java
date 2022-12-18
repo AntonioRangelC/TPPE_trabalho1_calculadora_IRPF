@@ -1,4 +1,4 @@
-package principal;
+package model.principal;
 
 public class Main {
 
