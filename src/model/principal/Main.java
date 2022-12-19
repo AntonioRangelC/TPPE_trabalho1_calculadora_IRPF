@@ -1,5 +1,6 @@
 package principal;
 import cadastro.*;
+package model.principal;
 
 public class Main {
 

@@ -1,4 +1,4 @@
-package calculo;
+package model.calculo;
 
 public class Calculo {
 }

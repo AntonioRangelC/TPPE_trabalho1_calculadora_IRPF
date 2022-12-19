@@ -1,5 +1,6 @@
-package cadastro;
+
 import excecoes.*;
+package model.cadastro;
 
 public class Cadastro {
 
