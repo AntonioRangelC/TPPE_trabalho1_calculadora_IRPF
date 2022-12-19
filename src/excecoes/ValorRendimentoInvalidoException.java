@@ -1,4 +1,4 @@
-package exceptions;
+package excecoes;
 
 public class ValorRendimentoInvalidoException extends Exception {
     public ValorRendimentoInvalidoException() {

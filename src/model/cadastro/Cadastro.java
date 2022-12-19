@@ -1,6 +1,6 @@
-
-import excecoes.*;
 package model.cadastro;
+import excecoes.*;
+
 
 public class Cadastro {
 

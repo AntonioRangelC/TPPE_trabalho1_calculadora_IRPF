@@ -1,6 +1,6 @@
-package principal;
-import cadastro.*;
 package model.principal;
+import model.cadastro.*;
+
 
 public class Main {
 

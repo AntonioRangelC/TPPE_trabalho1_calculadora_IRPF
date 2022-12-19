@@ -1,4 +1,4 @@
-package cadastro;
+package model.cadastro;
 import excecoes.*;
 
 public class Validacao {

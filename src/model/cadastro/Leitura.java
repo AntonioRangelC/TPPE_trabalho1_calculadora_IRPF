@@ -1,4 +1,4 @@
-package cadastro;
+package model.cadastro;
 import java.util.Scanner;
 
 public class Leitura {
