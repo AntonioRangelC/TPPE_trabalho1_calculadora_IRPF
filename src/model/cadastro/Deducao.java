@@ -22,6 +22,10 @@ public class Deducao {
         this.valor = valor;
     }
 
+    public static ArrayList<Deducao> getDeducoes() {
+        return deducoes;
+    }
+
     public Deducao(String descricao, float valor) {
         super();
         this.descricao = descricao;
