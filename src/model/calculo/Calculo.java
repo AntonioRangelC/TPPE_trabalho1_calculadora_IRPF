@@ -12,10 +12,16 @@ public class Calculo {
         float somaRendimentos = 0;
         float somaDeducoes = 0;
         for(Deducao aux : deducoes){
+            if(aux.getValor() < 0f){
+                return 0;
+            }
             somaDeducoes = somaDeducoes + aux.getValor();
         }
 
         for(Rendimento aux2: rendimentos){
+            if(aux2.getValor() < 0f){
+                return 0;
+            }
             somaRendimentos = somaRendimentos + aux2.getValor();
         }
 
