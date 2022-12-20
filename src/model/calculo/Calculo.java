@@ -9,9 +9,19 @@ public class Calculo {
     float totalDeducoes;
     public float calcularDeducoes(ArrayList<Deducao> deducoes, ArrayList<Rendimento> rendimentos){
 
+        float somaRendimentos = 0;
+        float somaDeducoes = 0;
+        for(Deducao aux : deducoes){
+            somaDeducoes = somaDeducoes + aux.getValor();
+        }
 
-        this.setTotalDeducoes(9800f);
-        return 9800f;
+        for(Rendimento aux2: rendimentos){
+            somaRendimentos = somaRendimentos + aux2.getValor();
+        }
+
+        this.setTotalDeducoes(somaRendimentos - somaDeducoes);
+
+        return this.getTotalDeducoes();
     }
 
     public float getTotalDeducoes() {
