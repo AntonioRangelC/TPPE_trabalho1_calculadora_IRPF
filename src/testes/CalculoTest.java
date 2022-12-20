@@ -29,4 +29,18 @@ public class CalculoTest {
         assertEquals(9800f, dedu.getTotalDeducoes(), 0f);
     }
 
+    @Test
+    public void testCalculo2(){
+        Deducao deducao = new Deducao("Pensão", 400f);
+        Deducao.deducoes.add(deducao);
+
+        Rendimento rendimento = new Rendimento("Aluguel", 2000f);
+        Rendimento.rendimentos.add(rendimento);
+
+
+        dedu.calcularDeducoes(Deducao.getDeducoes(),Rendimento.getRendimentos());
+        assertEquals(1600f, dedu.getTotalDeducoes(), 0f);
+
+    }
+
 }
