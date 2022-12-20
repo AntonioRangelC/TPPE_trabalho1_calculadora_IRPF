@@ -54,7 +54,7 @@ public class CalculoTest {
 
         dedu.calcularDeducoes(Deducao.getDeducoes(),Rendimento.getRendimentos());
 
-        assertEquals(true, (dedu.calcularDeducoes(Deducao.getDeducoes(), Rendimento.getRendimentos()) > 0.0));
+        assertEquals(0f, (dedu.calcularDeducoes(Deducao.getDeducoes(), Rendimento.getRendimentos())), 0f);
     }
 
 }
