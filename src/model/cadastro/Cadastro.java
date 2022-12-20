@@ -4,6 +4,28 @@ import excecoes.*;
 
 public class Cadastro {
 
+
+    public static void cadastrarRendimento(String descricao, float valor){
+        Rendimento rendimento = new Rendimento(descricao, valor);
+
+        try{
+            Validacao.validarDescricaoRendimento(rendimento.getDescricao());
+        } catch (DescricaoEmBrancoException e) {
+            e.printStackTrace();
+            System.out.println(e.toString());
+        }
+
+
+
+        try{
+            Validacao.validarValorRendimento(rendimento.getValor());
+        } catch (ValorRendimentoInvalidoException e) {
+            e.printStackTrace();
+            System.out.println(e.toString());
+        }
+
+    }
+
     public static void  cadastrarDeducao(){
         char continuarCadastrando = '1';
         while(continuarCadastrando == '1'){

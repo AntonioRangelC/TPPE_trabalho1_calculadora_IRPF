@@ -10,16 +10,12 @@ public class Rendimento {
   private Float valor;
   public static ArrayList<Rendimento> rendimentos = new ArrayList<Rendimento>();
 
-  public Rendimento(String descricao, Float valor) throws DescricaoEmBrancoException, ValorRendimentoInvalidoException {
-      if (descricao == null){
-          throw new DescricaoEmBrancoException();
-      }
-      if (descricao.isEmpty()) {
-          throw new DescricaoEmBrancoException();
-      }
-      if (valor <= 0) {
-          throw new ValorRendimentoInvalidoException();
-      }
+    public static ArrayList<Rendimento> getRendimentos() {
+        return rendimentos;
+    }
+
+    public Rendimento(String descricao, Float valor){
+      super();
       this.descricao = descricao;
       this.valor = valor;
   }
