@@ -10,33 +10,36 @@ public class Rendimento {
   private Float valor;
 
   public Float getTotalRendimentos() {
-    for ()
-    return totalRendimentos;
+    float valorTotalrndimentos = 0;
+    for (Rendimento rend : rendimentos) {
+      valorTotalrndimentos += rend.valor;
+    }
+    return valorTotalrndimentos;
   }
 
   float totalRendimentos = 0;
 
   public static ArrayList<Rendimento> rendimentos = new ArrayList<Rendimento>();
 
-    public static ArrayList<Rendimento> getRendimentos() {
-        return rendimentos;
-    }
+  public static ArrayList<Rendimento> getRendimentos() {
+    return rendimentos;
+  }
 
-    public Rendimento(String descricao, Float valor){
-      this.descricao = descricao;
-      this.valor = valor;
-    }
-    public Rendimento(){
+  public Rendimento(String descricao, Float valor){
+    this.descricao = descricao;
+    this.valor = valor;
+  }
+  public Rendimento(){
 
-    }
+  }
 
 
 
   public Float getValor() {
-      return this.valor;
+    return this.valor;
   }
 
   public String getDescricao() {
-      return this.descricao;
+    return this.descricao;
   }
 }
