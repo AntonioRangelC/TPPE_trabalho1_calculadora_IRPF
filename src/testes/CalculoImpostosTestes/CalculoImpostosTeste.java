@@ -16,8 +16,8 @@ public class CalculoImpostosTeste {
 
     @Test
     public void calculoTotalImpostosFalsificado() {
-        float baseDeCalculo = 2000f;
+        float baseDeCalculo = 1000f;
 
-        assertEquals(100f, calculo.calculaImposto(baseDeCalculo), 0f);
+        assertEquals(10f, calculo.calculaImposto(baseDeCalculo), 0f);
     }
 }
