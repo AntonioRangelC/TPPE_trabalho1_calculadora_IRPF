@@ -28,7 +28,7 @@ public class Deducao {
     ArrayList<PensaoAlimenticia> pensoesAlimenticias =  new ArrayList<PensaoAlimenticia>();
 
     float valorTotalDependente;
-    ArrayList<Dependente> dependentes = new ArrayList<Dependente>();
+    public ArrayList<Dependente> dependentes = new ArrayList<Dependente>();
 
     float totalPrevidenciOficial;
     ArrayList<PrevidenciaOficial> previdenciasOficiais = new ArrayList<PrevidenciaOficial>();
