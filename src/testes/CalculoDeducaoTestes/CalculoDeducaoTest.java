@@ -1,13 +1,20 @@
-package testes;
 
-import model.cadastro.*;
+package testes.CalculoDeducaoTestes;
+
+import model.cadastro.Deducao;
+import model.cadastro.Rendimento;
 import model.calculo.Calculo;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runners.Parameterized;
 
-import static org.junit.Assert.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 
-public class CalculoTest {
+import static org.junit.Assert.assertEquals;
+
+public class CalculoDeducaoTest {
 
     Calculo dedu;
 
@@ -15,6 +22,8 @@ public class CalculoTest {
     public void setup() {
         dedu = new Calculo();
     }
+
+
 
     @Test
     public void testCalculo1(){
