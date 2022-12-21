@@ -11,8 +11,6 @@ import static org.junit.Assert.assertEquals;
 public class CalculoImpostosTeste {
 
     Calculo calculo;
-    Deducao deducao;
-    Rendimento rendimento;
     @Before
     public void setup() {
         calculo = new Calculo();
