@@ -38,4 +38,43 @@ public class Calculo {
     public void setTotalDeducoes(float totalDeducoes) {
         this.totalDeducoes = totalDeducoes;
     }
+
+    public float calculaImposto() {
+        double VALOR_LIMITE_FAIXA1 = 1903.98;
+        double VALOR_LIMITE_FAIXA2 = 922.67;
+        double VALOR_LIMITE_FAIXA3 = 924.40;
+        double VALOR_LIMITE_FAIXA4 = 913.63;
+        double VALOR_LIMITE_FAIXA5 = VALOR_LIMITE_FAIXA4 + VALOR_LIMITE_FAIXA3 + VALOR_LIMITE_FAIXA2 + VALOR_LIMITE_FAIXA1;
+
+        double porcentagemFaixa2 = 0.075;
+        double porcentagemFaixa3 = 0.15;
+        double porcentagemFaixa4 = 0.225;
+        double porcentagemFaixa5 = 0.275;
+
+        float baseDeCalculo = this.getTotalDeducoes();
+        float totalImpostos = 0f;
+        double valorDaFaixa = 0;
+
+        if (baseDeCalculo > VALOR_LIMITE_FAIXA5) {
+            valorDaFaixa = baseDeCalculo - VALOR_LIMITE_FAIXA5;
+            totalImpostos += valorDaFaixa * porcentagemFaixa5;
+        }
+
+        if (baseDeCalculo > VALOR_LIMITE_FAIXA3 + VALOR_LIMITE_FAIXA2 + VALOR_LIMITE_FAIXA1) {
+            valorDaFaixa = Math.min(baseDeCalculo - (VALOR_LIMITE_FAIXA3 + VALOR_LIMITE_FAIXA2 + VALOR_LIMITE_FAIXA1), VALOR_LIMITE_FAIXA4);
+            totalImpostos += valorDaFaixa * porcentagemFaixa4;
+        }
+
+        if (baseDeCalculo > VALOR_LIMITE_FAIXA2 + VALOR_LIMITE_FAIXA1) {
+            valorDaFaixa = Math.min(baseDeCalculo - (VALOR_LIMITE_FAIXA2 + VALOR_LIMITE_FAIXA1), VALOR_LIMITE_FAIXA3);
+            totalImpostos += valorDaFaixa * porcentagemFaixa3;
+        }
+
+        if (baseDeCalculo > VALOR_LIMITE_FAIXA1) {
+            valorDaFaixa = Math.min(baseDeCalculo - VALOR_LIMITE_FAIXA1, VALOR_LIMITE_FAIXA2);
+            totalImpostos += valorDaFaixa * porcentagemFaixa2;
+        }
+
+        return totalImpostos;
+    }
 }
