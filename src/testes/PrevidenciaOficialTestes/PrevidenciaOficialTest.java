@@ -1,5 +1,7 @@
-/*
+
 package testes.PrevidenciaOficialTestes;
+import excecoes.DescricaoEmBrancoException;
+import excecoes.ValorDeducaoInvalidoException;
 import model.cadastro.Cadastro;
 import model.cadastro.Deducao;
 import static org.junit.Assert.assertEquals;
@@ -30,22 +32,25 @@ public class PrevidenciaOficialTest {
 
     @Test
     public void testeCadastroTRESrevOficialDOIS() throws Exception{
-        simul.cadastrarPrevidenciaOficial("Contribuição compulsoria", 1000f);
-        simul.cadastrarPrevidenciaOficial("Carnê INSS", 2000f);
-        simul.cadastrarPrevidenciaOficial("Carnê INSS 2", 3000f);
-        assertEquals(6000f, simul.getTotalDeducaoPrevidenciaOficial(),0f);
+        cadastro.cadastrarPrevidenciaOficial("Contribuição da previdência", 3000f);
+        cadastro.cadastrarPrevidenciaOficial("INSS", 100f);
+        cadastro.cadastrarPrevidenciaOficial("Carnê INSS 2", 4000f);
+        assertEquals(7100f, cadastro.deducao.getTotalDeducaoPrevidenciaOficial(),0f);
+    }
+
+
+
+
+    @Test(expected = ValorDeducaoInvalidoException.class)
+    public void testeValorMenorOuIgualZero() throws Exception {
+        cadastro.cadastrarPrevidenciaOficial(" INSS", 0f);
+
     }
 
     @Test(expected = DescricaoEmBrancoException.class)
     public void testeDescEmBranco() throws Exception {
-        simul.cadastrarPrevidenciaOficial(" ", 1000f);
-
-    }
-
-    @Test(expected = ValorDeducaoInvalidoException.class)
-    public void testeValorMenorOuIgualZero() throws Exception {
-        simul.cadastrarPrevidenciaOficial(" Carnê", 0f);
+        cadastro.cadastrarPrevidenciaOficial(" ", 1000f);
 
     }
 }
-*/
+
