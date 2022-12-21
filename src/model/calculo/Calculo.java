@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 public class Calculo {
     float totalDeducoes;
+    //Base de cálculo
     public float calcularDeducoes(ArrayList<Deducao> deducoes, ArrayList<Rendimento> rendimentos){
 
         float somaRendimentos = 0;

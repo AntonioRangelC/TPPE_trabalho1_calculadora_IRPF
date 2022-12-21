@@ -22,4 +22,9 @@ public class DependentesTest {
         //assertEquals();
     }
 
+    @Test
+    public void testeCadastraDependenteDois() throws Exception {
+        cadastro.cadastraDependente("", "");
+    }
+
 }

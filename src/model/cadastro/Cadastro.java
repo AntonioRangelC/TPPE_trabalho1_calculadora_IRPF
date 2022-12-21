@@ -69,6 +69,7 @@ public class Cadastro {
         }
 
         Rendimento.rendimentos.add(rendimento);
+        rendimento.totalRendimentos += valor;
 
     }
 

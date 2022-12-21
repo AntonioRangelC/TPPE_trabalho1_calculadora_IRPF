@@ -9,6 +9,9 @@ public class Rendimento {
   private String descricao;
   private Float valor;
 
+  public Float getTotalRendimentos() { return totalRendimentos; }
+
+  float totalRendimentos = 0;
 
   public static ArrayList<Rendimento> rendimentos = new ArrayList<Rendimento>();
 
