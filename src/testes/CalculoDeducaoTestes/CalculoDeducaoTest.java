@@ -1,6 +1,7 @@
 
 package testes.CalculoDeducaoTestes;
 
+import model.cadastro.Cadastro;
 import model.cadastro.Deducao;
 import model.cadastro.Rendimento;
 import model.calculo.Calculo;
@@ -17,6 +18,8 @@ import static org.junit.Assert.assertEquals;
 public class CalculoDeducaoTest {
 
     Calculo dedu;
+    Cadastro cadastro = new Cadastro();
+    Deducao deducao = new Deducao();
 
     @Before
     public void setup() {
@@ -39,19 +42,6 @@ public class CalculoDeducaoTest {
 
     }
 
-    @Test
-    public void testCalculo2(){
-        Deducao deducao = new Deducao("Pensão", 400f);
-        Deducao.deducoes.add(deducao);
-
-        Rendimento rendimento = new Rendimento("Aluguel", 2000f);
-        Rendimento.rendimentos.add(rendimento);
-
-
-        dedu.calcularDeducoes(Deducao.getDeducoes(),Rendimento.getRendimentos());
-        assertEquals(1600f, dedu.calcularDeducoes(Deducao.getDeducoes(), Rendimento.getRendimentos()), 0f);
-
-    }
 
     @Test
     public void testCalculo3(){

@@ -24,6 +24,12 @@ public class Deducao {
 
     }
 
+    public static float getValorTotalOutrasDeducoes() {
+        return valorTotalOutrasDeducoes;
+    }
+
+    public static float valorTotalOutrasDeducoes;
+
     float valorTotalPensaoAlimenticia;
     ArrayList<PensaoAlimenticia> pensoesAlimenticias =  new ArrayList<PensaoAlimenticia>();
 
