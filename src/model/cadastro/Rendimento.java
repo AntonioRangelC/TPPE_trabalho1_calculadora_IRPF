@@ -20,10 +20,14 @@ public class Rendimento {
     }
 
     public Rendimento(String descricao, Float valor){
-      super();
       this.descricao = descricao;
       this.valor = valor;
-  }
+    }
+    public Rendimento(){
+
+    }
+
+
 
   public Float getValor() {
       return this.valor;
