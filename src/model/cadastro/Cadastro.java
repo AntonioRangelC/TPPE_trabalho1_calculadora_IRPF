@@ -4,7 +4,7 @@ import excecoes.*;
 
 public class Cadastro {
     public Deducao deducao = new Deducao();
-
+    public Rendimento rendimento = new Rendimento();
 
     public void cadastraDependente(String nomeDependente, String dataDeNascimento) throws NomeEmBrancoException {
         if(nomeDependente == null){
@@ -49,11 +49,11 @@ public class Cadastro {
 
     }
 
-    public static void cadastrarRendimento(String descricao, float valor){
-        Rendimento rendimento = new Rendimento(descricao, valor);
+    public void cadastrarRendimento(String descricao, float valor){
+
 
         try{
-            Validacao.validarDescricaoRendimento(rendimento.getDescricao());
+            Validacao.validarDescricaoRendimento(descricao);
         } catch (DescricaoEmBrancoException e) {
             e.printStackTrace();
             System.out.println(e.toString());
@@ -62,12 +62,13 @@ public class Cadastro {
 
 
         try{
-            Validacao.validarValorRendimento(rendimento.getValor());
+            Validacao.validarValorRendimento(valor);
         } catch (ValorRendimentoInvalidoException e) {
             e.printStackTrace();
             System.out.println(e.toString());
         }
 
+        rendimento = new Rendimento(descricao, valor);
         Rendimento.rendimentos.add(rendimento);
         rendimento.totalRendimentos += valor;
 
