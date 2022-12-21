@@ -6,10 +6,23 @@ import java.util.ArrayList;
 public class Deducao {
     private  String descricao;
     private  float valor;
+
     public static ArrayList<Deducao> deducoes = new ArrayList<Deducao>();
 
     float deducaoPorDependente = 189.59f;
 
+    public float getTotalDeducoes(){
+        return  valorTotalPensaoAlimenticia + valorTotalDependente + totalPrevidenciOficial;
+    }
+
+    public Deducao(String descricao, float valor) {
+        this.descricao = descricao;
+        this.valor = valor;
+    }
+
+    public Deducao(){
+
+    }
 
     float valorTotalPensaoAlimenticia;
     ArrayList<PensaoAlimenticia> pensoesAlimenticias =  new ArrayList<PensaoAlimenticia>();
@@ -51,22 +64,7 @@ public class Deducao {
         return deducoes;
     }
 
-    public Deducao(String descricao, float valor) {
-        super();
-        this.descricao = descricao;
-        this.valor = valor;
-    }
 
-    public float getTotalDeducoes(){
-        float somaDeducoes = 0f;
-        for(Deducao aux : deducoes){
-            somaDeducoes = somaDeducoes + aux.getValor();
-        }
 
-        return somaDeducoes;
-    }
 
-    public Deducao(){
-
-    }
 }
