@@ -9,7 +9,10 @@ public class Rendimento {
   private String descricao;
   private Float valor;
 
-  public Float getTotalRendimentos() { return totalRendimentos; }
+  public Float getTotalRendimentos() {
+    for ()
+    return totalRendimentos;
+  }
 
   float totalRendimentos = 0;
 
@@ -20,10 +23,14 @@ public class Rendimento {
     }
 
     public Rendimento(String descricao, Float valor){
-      super();
       this.descricao = descricao;
       this.valor = valor;
-  }
+    }
+    public Rendimento(){
+
+    }
+
+
 
   public Float getValor() {
       return this.valor;
