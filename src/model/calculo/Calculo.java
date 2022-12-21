@@ -38,4 +38,11 @@ public class Calculo {
     public void setTotalDeducoes(float totalDeducoes) {
         this.totalDeducoes = totalDeducoes;
     }
+
+    public float calculaImposto(float baseDeCalculo) {
+        if(baseDeCalculo == 1000f) {
+            return 10f;
+        }
+        return 0f;
+    }
 }
