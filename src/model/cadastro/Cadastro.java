@@ -3,8 +3,97 @@ import excecoes.*;
 
 
 public class Cadastro {
+    public Deducao deducao = new Deducao();
 
-    public static void  cadastrarDeducao(){
+
+    public void cadastraDependente(String nomeDependente, String dataDeNascimento) throws NomeEmBrancoException {
+        if(nomeDependente == null){
+            throw new NomeEmBrancoException();
+        }
+        if(nomeDependente.trim().length()<1) {
+            throw new NomeEmBrancoException();
+        }
+        Dependente dependente = new Dependente(nomeDependente, dataDeNascimento);
+        deducao.dependentes.add(dependente);
+
+        deducao.valorTotalDependente += deducao.deducaoPorDependente;
+    }
+
+
+    public void cadastraPensaoAlimenticia(String descPensaoAlimenticia, float valorPensaoAlimenticia)
+            throws DescricaoEmBrancoException, ValorDeducaoInvalidoException {
+        if(descPensaoAlimenticia.trim().length()<1) {
+            throw new DescricaoEmBrancoException();
+        }
+        if(valorPensaoAlimenticia<=0) {
+            throw new ValorDeducaoInvalidoException();
+        }
+        PensaoAlimenticia pensao = new PensaoAlimenticia(descPensaoAlimenticia,valorPensaoAlimenticia);
+
+        deducao.pensoesAlimenticias.add(pensao);
+        deducao.valorTotalPensaoAlimenticia += valorPensaoAlimenticia;
+
+    }
+
+    public void cadastrarPrevidenciaOficial(String descPrevidenciaOficial, float valor)
+            throws  DescricaoEmBrancoException,  ValorDeducaoInvalidoException{
+        if(descPrevidenciaOficial.trim().length()<1) {
+            throw new DescricaoEmBrancoException();
+        }
+        if(valor<=0) {
+            throw new ValorDeducaoInvalidoException();
+        }
+        PrevidenciaOficial prev = new PrevidenciaOficial(descPrevidenciaOficial,valor);
+        deducao.previdenciasOficiais.add(prev);
+        deducao.totalPrevidenciOficial += valor;
+
+    }
+
+    public static void cadastrarRendimento(String descricao, float valor){
+        Rendimento rendimento = new Rendimento(descricao, valor);
+
+        try{
+            Validacao.validarDescricaoRendimento(rendimento.getDescricao());
+        } catch (DescricaoEmBrancoException e) {
+            e.printStackTrace();
+            System.out.println(e.toString());
+        }
+
+
+
+        try{
+            Validacao.validarValorRendimento(rendimento.getValor());
+        } catch (ValorRendimentoInvalidoException e) {
+            e.printStackTrace();
+            System.out.println(e.toString());
+        }
+
+        Rendimento.rendimentos.add(rendimento);
+
+    }
+
+
+    public static void cadastrarDeducao(String descricao, float valor){
+        Deducao deducao = new Deducao(descricao, valor);
+        try{
+            Validacao.validarDescricaoDeducao(descricao);
+        } catch (DescricaoEmBrancoException e){
+            e.printStackTrace();
+            System.out.println(e.toString());
+        }
+
+        try{
+            Validacao.validarValorDeducao(valor);
+        } catch (ValorDeducaoInvalidoException e) {
+            e.printStackTrace();
+            System.out.println(e.toString());
+        }
+
+        Deducao.deducoes.add(deducao);
+    }
+
+
+    /*public static void  cadastrarDeducao(){
         char continuarCadastrando = '1';
         while(continuarCadastrando == '1'){
             Deducao deducao = new Deducao();
@@ -52,5 +141,5 @@ public class Cadastro {
         }
 
         return valor;
-    }
+    }*/
 }

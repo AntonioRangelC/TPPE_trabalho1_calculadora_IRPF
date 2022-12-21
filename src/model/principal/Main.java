@@ -27,7 +27,7 @@ public class Main {
                     //cadastro de rendimentos
                     break;
                 case '2':
-                    Cadastro.cadastrarDeducao();
+                    //Cadastro.cadastrarDeducao();
                     break;
                 default:
                     System.out.println("Opção inválida");

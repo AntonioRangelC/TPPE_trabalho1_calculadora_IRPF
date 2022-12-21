@@ -1,10 +1,35 @@
 package model.cadastro;
+import excecoes.*;
+
 import java.util.ArrayList;
 
 public class Deducao {
     private  String descricao;
     private  float valor;
     public static ArrayList<Deducao> deducoes = new ArrayList<Deducao>();
+
+    float deducaoPorDependente = 189.59f;
+
+
+    float valorTotalPensaoAlimenticia;
+    ArrayList<PensaoAlimenticia> pensoesAlimenticias =  new ArrayList<PensaoAlimenticia>();
+
+    float valorTotalDependente;
+    ArrayList<Dependente> dependentes = new ArrayList<Dependente>();
+
+    float totalPrevidenciOficial;
+    ArrayList<PrevidenciaOficial> previdenciasOficiais = new ArrayList<PrevidenciaOficial>();
+
+
+
+    public float getTotalDeducaoPrevidenciaOficial() {
+        return this.totalPrevidenciOficial;
+    }
+
+
+    public float getPensaoAlimenticia() {
+        return this.valorTotalPensaoAlimenticia;
+    }
 
     public String getDescricao() {
         return descricao;
@@ -22,10 +47,23 @@ public class Deducao {
         this.valor = valor;
     }
 
+    public static ArrayList<Deducao> getDeducoes() {
+        return deducoes;
+    }
+
     public Deducao(String descricao, float valor) {
         super();
         this.descricao = descricao;
         this.valor = valor;
+    }
+
+    public float getTotalDeducoes(){
+        float somaDeducoes = 0f;
+        for(Deducao aux : deducoes){
+            somaDeducoes = somaDeducoes + aux.getValor();
+        }
+
+        return somaDeducoes;
     }
 
     public Deducao(){
