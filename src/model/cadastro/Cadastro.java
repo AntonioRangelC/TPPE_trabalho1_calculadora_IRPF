@@ -92,6 +92,7 @@ public class Cadastro {
         }
 
         Deducao.deducoes.add(deducao);
+        Deducao.valorTotalOutrasDeducoes += valor;
     }
 
 

@@ -34,6 +34,9 @@ public class Rendimento {
   }
 
 
+  /*public Float getTotalRendimentos() {
+    return totalRendimentos;
+  }*/
 
   public Float getValor() {
     return this.valor;

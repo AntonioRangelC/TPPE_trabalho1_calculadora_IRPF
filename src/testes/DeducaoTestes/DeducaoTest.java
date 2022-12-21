@@ -20,23 +20,21 @@ public class DeducaoTest {
 
     @Test
     public void testeCadastraDeducaoUm() throws Exception {
+        Deducao.deducoes.clear();
+        Deducao.valorTotalOutrasDeducoes = 0;
         Cadastro.cadastrarDeducao("Previdencia privada", 1000f);
 
-        assertEquals(1000f, deducao.getTotalDeducoes(),0f);
+        assertEquals(1000f, Deducao.getValorTotalOutrasDeducoes(),0f);
     }
-    @Test
-    public void testeCadastraDeducaoDois() throws Exception {
-        Cadastro.cadastrarDeducao("Previdencia privada", 1300f);
 
-        assertEquals(1300f, deducao.getTotalDeducoes(),0f);
-    }
 
     @Test
     public void testeCadastraDuasDeducao() throws Exception {
-        Cadastro.cadastrarDeducao("Previdencia privada", 1000f);
+        Deducao.deducoes.clear();
+        Cadastro.cadastrarDeducao("Previdencia privada", 1500f);
         Cadastro.cadastrarDeducao("Funpresp", 2000f);
 
-        assertEquals(3000f, deducao.getTotalDeducoes(),0f);
+        assertEquals(3500f, Deducao.getValorTotalOutrasDeducoes(),0f);
     }
 
     @Test(expected = DescricaoEmBrancoException.class)
