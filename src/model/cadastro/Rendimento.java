@@ -8,6 +8,8 @@ import java.util.ArrayList;
 public class Rendimento {
   private String descricao;
   private Float valor;
+
+
   public static ArrayList<Rendimento> rendimentos = new ArrayList<Rendimento>();
 
     public static ArrayList<Rendimento> getRendimentos() {
