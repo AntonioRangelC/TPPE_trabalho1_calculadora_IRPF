@@ -14,7 +14,7 @@ public class Calculo {
 
     float totalImpostos;
 
-    public void setAliquotaEfetiva(float aliquotaEfetiva) {
+    public void setAliquotaEfetiva() {
         this.aliquotaEfetiva = aliquotaEfetiva;
     }
 
