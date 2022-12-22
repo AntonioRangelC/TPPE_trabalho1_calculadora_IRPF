@@ -7,6 +7,23 @@ import java.util.ArrayList;
 
 public class Calculo {
     float totalDeducoes;
+
+    public float getTotalImpostos() {
+        return totalImpostos;
+    }
+
+    float totalImpostos;
+
+    public void setAliquotaEfetiva(float aliquotaEfetiva) {
+        this.aliquotaEfetiva = aliquotaEfetiva;
+    }
+
+    float aliquotaEfetiva;
+
+    public float getAliquotaEfetiva() {
+        return aliquotaEfetiva;
+    }
+
     //Base de cálculo
     public float calcularDeducoes(ArrayList<Deducao> deducoes, ArrayList<Rendimento> rendimentos){
 
@@ -74,7 +91,9 @@ public class Calculo {
             valorDaFaixa = Math.min(baseDeCalculo - VALOR_LIMITE_FAIXA1, VALOR_LIMITE_FAIXA2);
             totalImpostos += valorDaFaixa * porcentagemFaixa2;
         }
-
+        this.totalImpostos = totalImpostos;
         return totalImpostos;
     }
+
+
 }
