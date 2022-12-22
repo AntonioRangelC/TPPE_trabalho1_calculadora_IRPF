@@ -33,6 +33,17 @@ O projeto resultante do desenvolvimento através de TDD será capaz de fazer o:
 
 ## Uso
 
+Para utilizar o projeto com o IntelliJ IDEA, basta:
+
+- Clonar o repositório
+`git clone https://github.com/AntonioRangelC/TPPE_trabalho1_calculadora_IRPF.git`
+
+- Entrar no diretório criado:
+`cd TPPE_trabalho1_calculadora_IRPF`
+
+- Abra o projeto com o IntelliJ.
+
+O projeto foi desenvolvido no IntelliJ IDEA. Caso tenha a necessidade de utiliza-lo em uma IDE distinta, recomenda-se utilizar o Eclipse, há um passo a passo dísponivel na [documentação](https://www.jetbrains.com/help/idea/exporting-an-intellij-idea-project-to-eclipse.html) do IntelliJ.
 
 ## Trabalho Prático
 - [X] [Trabalho Prático 1 - Test-Driven Development](https://github.com/andrelanna/fga0242/tree/master/tp1). 
