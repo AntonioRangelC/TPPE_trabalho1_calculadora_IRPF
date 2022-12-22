@@ -88,6 +88,8 @@ public class CalculoAliquotaEfetivaTest {
         calculo.calculaImposto();
         calculo.setAliquotaEfetiva();
         assertEquals(this.aliquotaEfetivaEsperado, calculo.getAliquotaEfetiva(), 2f);
+        Deducao.deducoes.clear();
+        Rendimento.rendimentos.clear();
 
     }
 

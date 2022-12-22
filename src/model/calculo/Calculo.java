@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class Calculo {
     float totalDeducoes;
-
+    Rendimento rendimento = new Rendimento();
     public float getTotalImpostos() {
         return totalImpostos;
     }
@@ -15,7 +15,7 @@ public class Calculo {
     float totalImpostos;
 
     public void setAliquotaEfetiva() {
-        this.aliquotaEfetiva = aliquotaEfetiva;
+        this.aliquotaEfetiva = (this.totalImpostos/rendimento.getTotalRendimentos()) * 100;
     }
 
     float aliquotaEfetiva;
