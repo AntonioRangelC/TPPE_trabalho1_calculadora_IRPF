@@ -11,8 +11,20 @@ public class Calculo {
     public float getTotalImpostos() {
         return totalImpostos;
     }
+    double VALOR_LIMITE_FAIXA1 = 1903.98;
+    double VALOR_LIMITE_FAIXA2 = 922.67;
+    double VALOR_LIMITE_FAIXA3 = 924.40;
+    double VALOR_LIMITE_FAIXA4 = 913.63;
+    double VALOR_LIMITE_FAIXA5 = VALOR_LIMITE_FAIXA4 + VALOR_LIMITE_FAIXA3 + VALOR_LIMITE_FAIXA2 + VALOR_LIMITE_FAIXA1;
 
-    float totalImpostos;
+    double porcentagemFaixa2 = 0.075;
+    double porcentagemFaixa3 = 0.15;
+    double porcentagemFaixa4 = 0.225;
+    double porcentagemFaixa5 = 0.275;
+
+
+    float totalImpostos = 0f;
+
 
     public void setAliquotaEfetiva() {
         this.aliquotaEfetiva = (this.totalImpostos/rendimento.getTotalRendimentos()) * 100;
@@ -57,42 +69,70 @@ public class Calculo {
     }
 
     public float calculaImposto() {
-        double VALOR_LIMITE_FAIXA1 = 1903.98;
-        double VALOR_LIMITE_FAIXA2 = 922.67;
-        double VALOR_LIMITE_FAIXA3 = 924.40;
-        double VALOR_LIMITE_FAIXA4 = 913.63;
-        double VALOR_LIMITE_FAIXA5 = VALOR_LIMITE_FAIXA4 + VALOR_LIMITE_FAIXA3 + VALOR_LIMITE_FAIXA2 + VALOR_LIMITE_FAIXA1;
-
-        double porcentagemFaixa2 = 0.075;
-        double porcentagemFaixa3 = 0.15;
-        double porcentagemFaixa4 = 0.225;
-        double porcentagemFaixa5 = 0.275;
-
         float baseDeCalculo = this.getTotalDeducoes();
         float totalImpostos = 0f;
-        double valorDaFaixa = 0;
+        totalImpostos += estaNaFaixa5(baseDeCalculo, VALOR_LIMITE_FAIXA5);
 
-        if (baseDeCalculo > VALOR_LIMITE_FAIXA5) {
-            valorDaFaixa = baseDeCalculo - VALOR_LIMITE_FAIXA5;
-            totalImpostos += valorDaFaixa * porcentagemFaixa5;
-        }
+        totalImpostos += estaNaFaixa4(baseDeCalculo, VALOR_LIMITE_FAIXA3 + VALOR_LIMITE_FAIXA2 + VALOR_LIMITE_FAIXA1);
 
-        if (baseDeCalculo > VALOR_LIMITE_FAIXA3 + VALOR_LIMITE_FAIXA2 + VALOR_LIMITE_FAIXA1) {
-            valorDaFaixa = Math.min(baseDeCalculo - (VALOR_LIMITE_FAIXA3 + VALOR_LIMITE_FAIXA2 + VALOR_LIMITE_FAIXA1), VALOR_LIMITE_FAIXA4);
-            totalImpostos += valorDaFaixa * porcentagemFaixa4;
-        }
+        totalImpostos += estaNaFaixa3(baseDeCalculo, VALOR_LIMITE_FAIXA2 + VALOR_LIMITE_FAIXA1);
 
-        if (baseDeCalculo > VALOR_LIMITE_FAIXA2 + VALOR_LIMITE_FAIXA1) {
-            valorDaFaixa = Math.min(baseDeCalculo - (VALOR_LIMITE_FAIXA2 + VALOR_LIMITE_FAIXA1), VALOR_LIMITE_FAIXA3);
-            totalImpostos += valorDaFaixa * porcentagemFaixa3;
-        }
+        totalImpostos += estaNaFaixa2(baseDeCalculo, VALOR_LIMITE_FAIXA1);
 
-        if (baseDeCalculo > VALOR_LIMITE_FAIXA1) {
-            valorDaFaixa = Math.min(baseDeCalculo - VALOR_LIMITE_FAIXA1, VALOR_LIMITE_FAIXA2);
-            totalImpostos += valorDaFaixa * porcentagemFaixa2;
-        }
-        this.totalImpostos = totalImpostos;
         return totalImpostos;
+    }
+
+    public float estaNaFaixa5(float baseDeCalculo, double VALOR_LIMITE){
+        float totalImpostos = 0f;
+        if (baseDeCalculo > VALOR_LIMITE){
+            double valorDaFaixa = baseDeCalculo - VALOR_LIMITE;
+            totalImpostos += valorDaFaixa * porcentagemFaixa5;
+            return totalImpostos;
+        }
+        else{
+            return 0;
+        }
+    }
+
+    public float estaNaFaixa4(float baseDeCalculo, double VALOR_LIMITE){
+        float totalImpostos = 0f;
+
+        if (baseDeCalculo > VALOR_LIMITE) {
+            double valorDaFaixa = Math.min(baseDeCalculo - (VALOR_LIMITE_FAIXA3 + VALOR_LIMITE_FAIXA2 + VALOR_LIMITE_FAIXA1), VALOR_LIMITE_FAIXA4);
+            totalImpostos += valorDaFaixa * porcentagemFaixa4;
+            return totalImpostos;
+        }
+        else{
+            return 0;
+        }
+    }
+
+    public float estaNaFaixa3(float baseDeCalculo, double VALOR_LIMITE){
+        float totalImpostos = 0f;
+
+        if (baseDeCalculo > VALOR_LIMITE) {
+            double valorDaFaixa = Math.min(baseDeCalculo - (VALOR_LIMITE_FAIXA2 + VALOR_LIMITE_FAIXA1), VALOR_LIMITE_FAIXA3);
+            totalImpostos += valorDaFaixa * porcentagemFaixa3;
+
+            return totalImpostos;
+        }
+        else{
+            return 0;
+        }
+
+
+    }
+
+    public float estaNaFaixa2(float baseDeCalculo, double VALOR_LIMITE) {
+        float totalImpostos = 0f;
+
+        if (baseDeCalculo > VALOR_LIMITE) {
+            double valorDaFaixa = Math.min(baseDeCalculo - VALOR_LIMITE_FAIXA1, VALOR_LIMITE_FAIXA2);
+            totalImpostos += valorDaFaixa * porcentagemFaixa2;
+            return totalImpostos;
+        } else {
+            return 0;
+        }
     }
 
 
