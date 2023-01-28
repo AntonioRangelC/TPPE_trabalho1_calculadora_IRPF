@@ -7,10 +7,10 @@ import java.util.ArrayList;
 
 public class Calculo {
     float totalDeducoes;
+    float totalImpostos = 0f;
+    float aliquotaEfetiva;
     Rendimento rendimento = new Rendimento();
-    public float getTotalImpostos() {
-        return totalImpostos;
-    }
+
     double VALOR_LIMITE_FAIXA1 = 1903.98;
     double VALOR_LIMITE_FAIXA2 = 922.67;
     double VALOR_LIMITE_FAIXA3 = 924.40;
@@ -22,15 +22,42 @@ public class Calculo {
     double porcentagemFaixa4 = 0.225;
     double porcentagemFaixa5 = 0.275;
 
+    public double getVALOR_LIMITE_FAIXA1() {
+        return VALOR_LIMITE_FAIXA1;
+    }
+    public double getVALOR_LIMITE_FAIXA2() {
+        return VALOR_LIMITE_FAIXA2;
+    }
+    public double getVALOR_LIMITE_FAIXA3() {
+        return VALOR_LIMITE_FAIXA3;
+    }
+    public double getVALOR_LIMITE_FAIXA4() {
+        return VALOR_LIMITE_FAIXA4;
+    }
+    public double getVALOR_LIMITE_FAIXA5() {
+        return VALOR_LIMITE_FAIXA5;
+    }
 
-    float totalImpostos = 0f;
+    public double getPorcentagemFaixa2() {
+        return porcentagemFaixa2;
+    }
+    public double getPorcentagemFaixa3() {
+        return porcentagemFaixa3;
+    }
+    public double getPorcentagemFaixa4() {
+        return porcentagemFaixa4;
+    }
+    public double getPorcentagemFaixa5() {
+        return porcentagemFaixa5;
+    }
 
+    public float getTotalImpostos() {
+        return totalImpostos;
+    }
 
     public void setAliquotaEfetiva() {
         this.aliquotaEfetiva = (this.totalImpostos/rendimento.getTotalRendimentos()) * 100;
     }
-
-    float aliquotaEfetiva;
 
     public float getAliquotaEfetiva() {
         return aliquotaEfetiva;
@@ -69,17 +96,8 @@ public class Calculo {
     }
 
     public float calculaImposto() {
-        float baseDeCalculo = this.getTotalDeducoes();
-        float totalImpostos = 0f;
-        totalImpostos += estaNaFaixa5(baseDeCalculo, VALOR_LIMITE_FAIXA5);
-
-        totalImpostos += estaNaFaixa4(baseDeCalculo, VALOR_LIMITE_FAIXA3 + VALOR_LIMITE_FAIXA2 + VALOR_LIMITE_FAIXA1);
-
-        totalImpostos += estaNaFaixa3(baseDeCalculo, VALOR_LIMITE_FAIXA2 + VALOR_LIMITE_FAIXA1);
-
-        totalImpostos += estaNaFaixa2(baseDeCalculo, VALOR_LIMITE_FAIXA1);
-
-        return totalImpostos;
+        CalculaImposto ci = new CalculaImposto(this, this.getTotalDeducoes(), 0);
+        return ci.computar();
     }
 
     public float estaNaFaixa5(float baseDeCalculo, double VALOR_LIMITE){
